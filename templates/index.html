@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG System</title>
+    <style>
+        :root {
+            --primary: #9c27b0;
+            --primary-light: #ba68c8;
+            --primary-dark: #7b1fa2;
+            --background: #1a1a1a;
+            --surface: #2d2d2d;
+            --text: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--primary-light);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .query-section {
+            background-color: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            background-color: var(--background);
+            color: var(--text);
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: var(--text);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .response-section {
+            background-color: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: var(--primary-light);
+            display: none;
+        }
+
+        .relevant-docs {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--primary);
+        }
+
+        .relevant-doc {
+            background-color: var(--background);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--primary-light);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RAG Query System</h1>
+        
+        <div class="query-section">
+            <textarea id="queryInput" placeholder="Enter your query here..."></textarea>
+            <button onclick="submitQuery()">Generate Response</button>
+        </div>
+
+        <div id="loading" class="loading">
+            Processing your query...
+        </div>
+
+        <div id="responseSection" class="response-section">
+            <h2>Generated Response</h2>
+            <div id="responseText"></div>
+
+            <div class="relevant-docs">
+                <h2>Relevant Documents</h2>
+                <div id="relevantDocs"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function submitQuery() {
+            const queryInput = document.getElementById('queryInput');
+            const loading = document.getElementById('loading');
+            const responseSection = document.getElementById('responseSection');
+            const responseText = document.getElementById('responseText');
+            const relevantDocs = document.getElementById('relevantDocs');
+
+            // Show loading, hide response
+            loading.style.display = 'block';
+            responseSection.style.display = 'none';
+
+            try {
+                const response = await fetch('/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: queryInput.value }),
+                });
+
+                const data = await response.json();
+
+                // Update response text
+                responseText.textContent = data.response;
+
+                // Update relevant documents
+                relevantDocs.innerHTML = '';
+                data.relevant_docs.forEach((doc, index) => {
+                    const docElement = document.createElement('div');
+                    docElement.className = 'relevant-doc';
+                    docElement.textContent = `Document ${index + 1}: ${doc.substring(0, 200)}...`;
+                    relevantDocs.appendChild(docElement);
+                });
+
+                // Hide loading, show response
+                loading.style.display = 'none';
+                responseSection.style.display = 'block';
+            } catch (error) {
+                console.error('Error:', error);
+                loading.textContent = 'An error occurred. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>
