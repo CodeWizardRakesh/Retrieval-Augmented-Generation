@@ -1,0 +1,1 @@
+Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think, reason, and learn. It encompasses subfields like machine learning, natural language processing, and robotics. AI is widely applied in healthcare, finance, entertainment, and self-driving cars.

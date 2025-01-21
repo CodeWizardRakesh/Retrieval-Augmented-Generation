@@ -7,7 +7,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Prepare your data
 documents = []
-folder_path = "D:\projects\RAG\Knowledge_Base"
+folder_path = "Knowledge_Base2"
 for file in os.listdir(folder_path):
     with open(os.path.join(folder_path, file), 'r') as f:
         documents.append(f.read())
@@ -21,4 +21,4 @@ index = faiss.IndexFlatL2(dimension)
 index.add(embeddings)
 
 # Save the index for reuse
-faiss.write_index(index, "local_data.index")
+faiss.write_index(index, "local_data2.index")
