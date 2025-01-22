@@ -8,7 +8,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Prepare your data
 documents = []
-folder_path = "Knowledge_Base2"
+folder_path = "Knowledge_Base"
 for file in os.listdir(folder_path):
     with open(os.path.join(folder_path, file), 'r') as f:
         documents.append(f.read())
@@ -22,7 +22,7 @@ index = faiss.IndexFlatL2(dimension)
 index.add(embeddings)
 
 # Save the index for reuse (optional)
-faiss.write_index(index, "local_data2.index")
+faiss.write_index(index, "local_data.index")
 
 # Query the data
 query = input("Prompt : ")
@@ -38,6 +38,6 @@ generator = pipeline("text-generation", model="gpt2",  trust_remote_code=True)
 # Combine query with retrieved data and generate a response
 context = "\n".join(relevant_docs)
 input_text = f"Context: {context}\n\nQuestion: {query}\nAnswer:"
-response = generator(input_text, max_length=300, num_return_sequences=1)
+response = generator(input_text, max_new_token=150, num_return_sequences=1)
 print("Generated Response:")
 print(response[0]['generated_text'])

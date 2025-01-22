@@ -1,0 +1,21 @@
+Starship flight test 7 was the seventh flight test of a SpaceX Starship launch vehicle. Flight 7 lifted off from Orbital Launch Pad A (OLP-A) on January 16, 2025, at 22:37:00 UTC (4:37 pm CST, local time) at the Starbase launch site in Texas. The prototype vehicles flown were Booster 14, a Block 1 vehicle, and Ship 33, the first Block 2 upper stage, which introduced upgrades in structure, avionics, and other systems. The mission was to follow a trajectory similar to the previous flight, with a planned splashdown in the Indian Ocean about an hour after liftoff, to be imaged by a NASA observation aircraft. It also tested a new Starlink satellite deployment system.
+
+With the upgrade to a Block 2 design, Starship once again became the heaviest flying object ever built by humankind, at a weight of approximately 5000 tons at liftoff.[4][5]
+
+However, during Ship 33’s initial burn, its engines experienced premature shutdowns, followed by a total loss of telemetry. The vehicle was observed exploding over the Turks and Caicos Islands, likely due to a fuel leak. This incident prompted regional airspace closures lasting over an hour and triggered an FAA-required mishap investigation. Booster 14 successfully returned to the launch site and was caught by the "chopstick" arms on the launch tower at OLP-A, making it the second booster recovered, after Booster 12 during flight test 5.
+
+
+NASA requested an expedited waiver from the Federal Aviation Administration (FAA) to commence practice flights over the Gulf of Mexico and Southwest Texas in early December. Subsequently, the aircraft was flown to Perth, Australia on January 3 for additional practice flights in the actual landing zone, ahead of the targeted Flight Test 7 on January 16, 2025. If the FAA approved the waiver, Australia's Civil Aviation Safety Authority had indicated its willingness to honor the exemption, allowing for both practice flights and the imaging flight during Flight Test 7.[17]
+
+Mission profile
+The mission profile for flight test 7 was expected to be similar to the previous launch, targeting a splashdown in the Indian Ocean. Had the mission proceeded further, it would have attempted an in-space engine relight, and deploy ten demisable Starlink "simulators," which were also expected to reenter over the Indian Ocean.[1]
+
+Mission outcome
+At T+2:40 Ship 33 ignited all six Raptor engines and separated from Booster 14. B14 successfully returned to the launch site and was subsequently caught by the chopsticks on OLP-A, making it the second booster successfully recovered, following Booster 12 on Flight 5.[19]
+
+During the Ship's ascent burn, a series of cascading engine shutdowns occurred. The first engine failure occurred at T+7:39 when a center engine shut down,[18] followed by the failure of a second center engine at T+8:02 and an adjacent outer Raptor Vacuum engine (RVac) at T+8:04. At T+8:18, another outer RVac shut down, and by T+8:24, the last gimbaling center engine had failed. Transmissions from the vehicle were lost at T+8:26, at an altitude of 146 kilometers (91 mi), 27 seconds before the planned engine shutdown.[3]
+
+Around three minutes later, Ship 33 exploded over the Turks and Caicos Islands,[20][21] with the debris likely reentering over the ocean north of Puerto Rico and the British Virgin Islands,[3] prompting airspace closures in the region for over an hour.[22][23] The FAA ordered SpaceX to perform a mishap investigation into the breakup, grounding Starship until the inquiry was complete.[24]
+
+After the mission, SpaceX CEO Elon Musk stated that a propellant leak was the probable cause of Ship 33's failure: "Preliminary indications suggest an oxygen/fuel leak in the cavity above the ship engine firewall, which was substantial enough to build pressure beyond the venting capacity."[25]
+

@@ -41,12 +41,13 @@ def process_query():
     # Generate response
     context = "\n".join(relevant_docs)
     input_text = f"Context: {context}\n\nQuestion: {query}\nAnswer:"
-    response = generator(input_text, max_length=300, num_return_sequences=1)
+    response = generator(input_text, max_new_tokens=150, num_return_sequences=1)  # Use max_new_tokens here
     
     return jsonify({
         'response': response[0]['generated_text'],
         'relevant_docs': relevant_docs[:3]  # Return top 3 relevant documents
     })
+
 
 if __name__ == '__main__':
     app.run(debug=True)
