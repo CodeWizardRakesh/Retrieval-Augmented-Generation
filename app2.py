@@ -13,12 +13,12 @@ generator = pipeline("text-generation", model="gpt2", trust_remote_code=True)
 # Load FAISS index and documents
 def load_data():
     documents = []
-    folder_path = "Knowledge_Base"
+    folder_path = "Knowledge_Base2"
     for file in os.listdir(folder_path):
         with open(os.path.join(folder_path, file), 'r') as f:
             documents.append(f.read())
     
-    index = faiss.read_index("local_data.index")
+    index = faiss.read_index("local_data2.index")
     return documents, index
 
 documents, index = load_data()
