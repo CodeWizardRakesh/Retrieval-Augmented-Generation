@@ -18,7 +18,7 @@ def load_data():
         with open(os.path.join(folder_path, file), 'r') as f:
             documents.append(f.read())
     
-    index = faiss.read_index("local_data.index")
+    index = faiss.read_index("local_data2.index")
     return documents, index
 
 documents, index = load_data()

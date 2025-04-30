@@ -41,7 +41,7 @@ def process_query():
     # Generate response
     context = "\n".join(relevant_docs)
     input_text = f"Context: {context}\n\nQuestion: {query}\nAnswer:"
-    response = generator(input_text, max_length=300, num_return_sequences=1)
+    response = generator(input_text, max_length=1000, num_return_sequences=1)
     
     return jsonify({
         'response': response[0]['generated_text'],
